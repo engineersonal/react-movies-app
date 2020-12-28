@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Home.css";
 import Header from "../../common/header/Header";
 import { withStyles } from "@material-ui/core/styles";
-import moviesData from "../../assets/movieData";
+import moviesData from "../../common/movieData";
 import genres from "../../common/genres";
 import artists from "../../common/artists";
 import GridList from "@material-ui/core/GridList";
@@ -19,6 +19,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Checkbox from "@material-ui/core/Checkbox";
 import ListItemText from "@material-ui/core/ListItemText";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const styles = (theme) => ({
   root: {
@@ -207,6 +208,13 @@ class Home extends Component {
                     defaultValue=""
                     InputLabelProps={{ shrink: true }}
                   />
+                </FormControl>
+                <br />
+                <br />
+                <FormControl className={classes.formControl}>
+                  <Button variant="contained" color="primary">
+                    APPLY
+                  </Button>
                 </FormControl>
               </CardContent>
             </Card>
