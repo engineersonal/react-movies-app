@@ -99,7 +99,7 @@ class Details extends Component {
           </div>
           <div className="middleDetails">
             <div>
-              <Typography variant="headline" component="h2">
+              <Typography variant="h2" component="h2">
                 {movie.title}
               </Typography>
             </div>
