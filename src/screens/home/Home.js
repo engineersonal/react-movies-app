@@ -44,7 +44,7 @@ const styles = (theme) => ({
     cursor: "pointer",
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     minWidth: 240,
     maxWidth: 240,
   },
@@ -171,12 +171,12 @@ class Home extends Component {
                   </Select>
                 </FormControl>
                 <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="select-multiple-checkbox">
+                  <InputLabel htmlFor="select-multiple-checkbox1">
                     Artists
                   </InputLabel>
                   <Select
                     multiple
-                    input={<Input id="select-multiple-checkbox" />}
+                    input={<Input id="select-multiple-checkbox1" />}
                     renderValue={(selected) => selected.join(",")}
                     value={this.state.artists}
                     onChange={this.artistSelectHandler}

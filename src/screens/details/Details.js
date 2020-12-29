@@ -46,7 +46,7 @@ class Details extends Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let currentState = this.state;
     currentState.movie = moviesData.filter((mov) => {
       return mov.id === this.props.movieId;
