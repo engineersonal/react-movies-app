@@ -230,7 +230,20 @@ export default class Header extends Component {
               </Button>
             </div>
           )}
-          {this.props.showBookShowButton === "true" ? (
+          {this.props.showBookShowButton === "true" && !this.state.loggedIn ? (
+            <div className="bookshow-button">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={this.openModalHandler}
+              >
+                Book Show
+              </Button>
+            </div>
+          ) : (
+            ""
+          )}
+          {this.props.showBookShowButton === "true" && this.state.loggedIn ? (
             <div className="bookshow-button">
               <Link to={"/bookshow/" + this.props.id}>
                 <Button variant="contained" color="primary">
