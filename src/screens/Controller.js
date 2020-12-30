@@ -9,7 +9,7 @@ import Confirmation from "../screens/confirmation/Confirmation";
 class Controller extends Component {
   constructor() {
     super();
-    this.baseUrl = "http://54.175.21.157:8080/api/v1/";
+    this.baseUrl = "http://localhost:8085/api/v1/";
   }
   render() {
     return (
