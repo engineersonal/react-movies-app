@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Home.css";
 import Header from "../../common/header/Header";
 import { withStyles } from "@material-ui/core/styles";
-import artists from "../../common/artists";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
@@ -59,6 +58,7 @@ class Home extends Component {
       genres: [],
       genresList: [],
       artists: [],
+      artistsList: [],
     };
   }
 
@@ -90,7 +90,7 @@ class Home extends Component {
     xhrReleased.setRequestHeader("Cache-Control", "no-cache");
     xhrReleased.send(dataReleased);
 
-    // Get filters
+    // Get Genres
     let dataGenres = null;
     let xhrGenres = new XMLHttpRequest();
     xhrGenres.addEventListener("readystatechange", function () {
@@ -104,6 +104,21 @@ class Home extends Component {
     xhrGenres.open("GET", this.props.baseUrl + "genres");
     xhrGenres.setRequestHeader("Cache-Control", "no-cache");
     xhrGenres.send(dataGenres);
+
+    // Get artists
+    let dataArtists = null;
+    let xhrArtists = new XMLHttpRequest();
+    xhrArtists.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        that.setState({
+          artistsList: JSON.parse(this.responseText).artists,
+        });
+      }
+    });
+
+    xhrArtists.open("GET", this.props.baseUrl + "artists");
+    xhrArtists.setRequestHeader("Cache-Control", "no-cache");
+    xhrArtists.send(dataArtists);
   }
 
   movieNameChangeHandler = (event) => {
@@ -220,7 +235,7 @@ class Home extends Component {
                     value={this.state.artists}
                     onChange={this.artistSelectHandler}
                   >
-                    {artists.map((artist) => (
+                    {this.state.artistsList.map((artist) => (
                       <MenuItem
                         key={artist.id}
                         value={artist.first_name + " " + artist.last_name}
