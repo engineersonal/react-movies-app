@@ -21,7 +21,7 @@ class BookShow extends Component {
       theatre: "",
       language: "",
       showDate: "",
-      tickets: 0,
+      tickets: [],
       unitPrice: 500,
       availableTickets: 20,
       reqLocation: "dispNone",
