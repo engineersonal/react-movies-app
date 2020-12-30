@@ -137,6 +137,16 @@ class Home extends Component {
     this.props.history.push("/movie/" + movieId);
   };
 
+  filterApplyHandler = () => {
+    let queryString = "?status=RELEASED";
+    if (this.state.movieName !== "") {
+      queryString += "&title=" + this.state.movieName;
+    }
+    if (this.state.genres.length > 0) {
+      queryString += "&genres=" + this.state.genres.toString();
+    }
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -275,7 +285,11 @@ class Home extends Component {
                 <br />
                 <br />
                 <FormControl className={classes.formControl}>
-                  <Button variant="contained" color="primary">
+                  <Button
+                    onClick={() => this.filterApplyHandler()}
+                    variant="contained"
+                    color="primary"
+                  >
                     APPLY
                   </Button>
                 </FormControl>
