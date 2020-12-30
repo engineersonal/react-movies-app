@@ -197,6 +197,8 @@ export default class Header extends Component {
     this.setState({ contact: e.target.value });
   };
 
+  logoutHandler = (e) => {};
+
   render() {
     return (
       <div>
@@ -276,13 +278,27 @@ export default class Header extends Component {
               )}
               <br />
               <br />
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.loginClickHandler}
-              >
-                LOGIN
-              </Button>
+              {!this.state.loggedIn ? (
+                <div className="login-button">
+                  <Button
+                    variant="contained"
+                    color="default"
+                    onClick={this.openModalHandler}
+                  >
+                    Login
+                  </Button>
+                </div>
+              ) : (
+                <div className="login-button">
+                  <Button
+                    variant="contained"
+                    color="default"
+                    onClick={this.logoutHandler}
+                  >
+                    Logout
+                  </Button>
+                </div>
+              )}
             </TabContainer>
           )}
           {this.state.value === 1 && (
